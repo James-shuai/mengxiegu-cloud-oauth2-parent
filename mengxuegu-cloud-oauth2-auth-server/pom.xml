@@ -25,12 +25,12 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-oauth2</artifactId>
     </dependency>
-    <!-- 注册到 Eureka
+    <!-- 注册到 Eureka-->
     <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
     </dependency>
-    -->
+
     <!-- redis-->
     <dependency>
     <groupId>org.springframework.boot</groupId>

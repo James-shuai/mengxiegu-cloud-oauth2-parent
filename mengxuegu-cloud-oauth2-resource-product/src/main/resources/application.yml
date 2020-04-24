@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: product-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6001/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${server.port} # 指定实例ID,页面会显示主机名
+    preferIpAddress: true #访问路径可以显示IP地址

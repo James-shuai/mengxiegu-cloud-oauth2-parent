@@ -7,14 +7,24 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mengxuegu-cloud-oauth2-base" />
+        <module name="mengxuegu-cloud-oauth2-sso-client2" />
+        <module name="mengxuegu-cloud-oauth2-sso-client1" />
+        <module name="mengxuegu-cloud-oauth2-resource-product" />
+        <module name="mengxuegu-cloud-eureka" />
         <module name="mengxuegu-cloud-oauth2-auth-server" />
+        <module name="mengxuegu-cloud-gateway" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mengxuegu-cloud-eureka" options="-parameters" />
+      <module name="mengxuegu-cloud-gateway" options="-parameters" />
       <module name="mengxuegu-cloud-oauth2-auth-server" options="-parameters" />
       <module name="mengxuegu-cloud-oauth2-base" options="-parameters" />
+      <module name="mengxuegu-cloud-oauth2-resource-product" options="-parameters" />
+      <module name="mengxuegu-cloud-oauth2-sso-client1" options="-parameters" />
+      <module name="mengxuegu-cloud-oauth2-sso-client2" options="-parameters" />
     </option>
   </component>
 </project>

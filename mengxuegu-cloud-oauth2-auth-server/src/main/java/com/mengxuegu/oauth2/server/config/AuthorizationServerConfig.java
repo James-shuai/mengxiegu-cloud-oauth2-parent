@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 /**
  * 认证配置类
@@ -37,6 +38,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
   @Autowired
   private ClientDetailsService jdbcClientDetailsService;
+  //jwt转换器
+  @Autowired
+  private JwtAccessTokenConverter jwtAccessTokenConverter;
 
 
   /**
@@ -81,7 +85,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     //刷新令牌需要使用该实例
     endpoints.userDetailsService(customUserDetailsService);
     //通过Redis管理令牌
-    endpoints.tokenStore(tokenStore);
+    endpoints.tokenStore(tokenStore).accessTokenConverter(jwtAccessTokenConverter);
   }
 
 

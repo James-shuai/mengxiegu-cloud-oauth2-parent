@@ -20,6 +20,16 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
     validationQuery: SELECT 1 FROM DUAL
+  application:
+    name: auth-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6001/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${server.port} # 指定实例ID,页面会显示主机名
+    preferIpAddress: true #访问路径可以显示IP地址
 
 mybatis-plus:
   # 指定实体类所有包
