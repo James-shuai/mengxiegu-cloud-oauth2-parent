@@ -11,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Base64Utils;
-import sun.plugin.liveconnect.SecurityContextHelper;
 
 import java.util.Collection;
 import java.util.HashMap;

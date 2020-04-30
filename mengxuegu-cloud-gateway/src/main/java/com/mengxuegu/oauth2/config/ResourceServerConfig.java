@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.web.cors.CorsUtils;
 
 /**
  * 当前类用于管理所有的资源（认证服务器，资源服务器）
@@ -39,7 +40,7 @@ public class ResourceServerConfig {
     }
     @Override
     public void configure(HttpSecurity http) throws Exception {
-      http.authorizeRequests()
+      http.cors().and().authorizeRequests()
         .anyRequest().permitAll();//认证服务器 所有请求全部放行
     }
 
@@ -61,11 +62,48 @@ public class ResourceServerConfig {
     }
     @Override
     public void configure(HttpSecurity http) throws Exception {
-      http.authorizeRequests()
+      http
+        //跨域配置开始GlobalCorsConfig
+        .cors().disable()
+        .cors()
+        .and()
+        .authorizeRequests()
+        .requestMatchers(CorsUtils::isPreFlightRequest)
+        .permitAll().and()
+        .authorizeRequests()
         .antMatchers("/product/**").access("#oauth2.hasScope('PRODUCT_PAI')");
     }
 
   }
 
+
+  /**
+   * 商品资源服务器的资源
+   */
+  @EnableResourceServer
+  @Configuration
+  public class SystemResourceServerConfig extends ResourceServerConfigurerAdapter {
+    @Override
+    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+      resources
+        .resourceId(RESOURCE_ID) //资源服务器ID，认证服务端判断是否有该资源服务id的权限
+        .tokenStore(tokenStore) //校验token合法性
+      ;
+    }
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+      http
+        //跨域配置开始GlobalCorsConfig
+        .cors().disable()
+        .cors()
+        .and()
+        .authorizeRequests()
+        .requestMatchers(CorsUtils::isPreFlightRequest)
+        .permitAll().and()
+        .authorizeRequests()
+        .antMatchers("/system/**").access("#oauth2.hasScope('SYSTEM_API')");
+    }
+
+  }
 
 }

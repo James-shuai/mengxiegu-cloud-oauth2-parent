@@ -6,8 +6,8 @@
 
     <select id="findByUserId" resultType="SysPermission">
         SELECT
-            DISTINCT p.id,	p.parent_id, p.name, p.code, p.url, p.type,
-            p.icon, p.remark, p.create_date, p.update_date
+            DISTINCT p.id,	p.parent_id, p.name, p.code, p.route, p.type,
+            p.icon, p.remark, p.create_date, p.update_date,p.sort
         FROM
           sys_user AS u
           LEFT JOIN sys_user_role AS ur

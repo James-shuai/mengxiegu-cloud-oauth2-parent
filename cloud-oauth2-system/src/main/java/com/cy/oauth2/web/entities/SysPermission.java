@@ -1,4 +1,4 @@
-package com.mengxuegu.oauth2.web.entities;
+package com.cy.oauth2.web.entities;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

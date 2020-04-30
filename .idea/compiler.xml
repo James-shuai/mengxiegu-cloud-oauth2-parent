@@ -12,12 +12,17 @@
         <module name="mengxuegu-cloud-oauth2-resource-product" />
         <module name="mengxuegu-cloud-eureka" />
         <module name="mengxuegu-cloud-oauth2-auth-server" />
+        <module name="cloud-oauth2-system" />
         <module name="mengxuegu-cloud-gateway" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mengxuegu-cloud-oauth2-system" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-oauth2-system" options="-parameters" />
       <module name="mengxuegu-cloud-eureka" options="-parameters" />
       <module name="mengxuegu-cloud-gateway" options="-parameters" />
       <module name="mengxuegu-cloud-oauth2-auth-server" options="-parameters" />

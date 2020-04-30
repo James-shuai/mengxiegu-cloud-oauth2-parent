@@ -22,7 +22,7 @@ public class GatewayConfig {
     corsConfiguration.addAllowedHeader("*");
     corsConfiguration.addAllowedOrigin("*");
     corsConfiguration.addAllowedMethod("*");
-//↓核心代码
+  //↓核心代码
     corsConfiguration.addExposedHeader("Authorization");
     source.registerCorsConfiguration("/**", corsConfiguration);
     return new CorsFilter(source);

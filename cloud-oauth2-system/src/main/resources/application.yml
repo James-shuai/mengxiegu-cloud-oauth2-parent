@@ -1,14 +1,12 @@
 server:
-  port: 8090
-  servlet:
-    context-path: /auth
+  port: 8082
 spring:
   redis:
     host: 39.96.167.196
     password: yuanshuai
   datasource:
     url: jdbc:mysql://cdb-6z1kjh7u.bj.tencentcdb.com:10217/ceshiauto?useUnicode=true&characterEncoding=utf8
-    username: auth
+    username: root
     password: yuanshuai0925
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
@@ -21,7 +19,7 @@ spring:
     minEvictableIdleTimeMillis: 300000
     validationQuery: SELECT 1 FROM DUAL
   application:
-    name: auth-server
+    name: system-server
 
 eureka:
   client:
@@ -33,7 +31,7 @@ eureka:
 
 mybatis-plus:
   # 指定实体类所有包
-  type-aliases-package: com.mengxuegu.oauth2.web.entities
+  type-aliases-package: com.cy.oauth2.web.entities
 
 # 日志级别，会打印sql语句
 logging:
