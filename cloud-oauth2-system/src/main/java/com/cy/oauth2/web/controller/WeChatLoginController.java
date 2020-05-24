@@ -1,7 +1,7 @@
 package com.cy.oauth2.web.controller;
 
 
-import com.mengxuegu.base.result.ResultData;
+import com.cy.base.result.ResultData;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

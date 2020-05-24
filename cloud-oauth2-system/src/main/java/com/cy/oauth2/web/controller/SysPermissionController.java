@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cy.oauth2.web.entities.SysPermission;
 import com.cy.oauth2.web.service.SysPermissionService;
-import com.mengxuegu.base.result.ResultData;
+import com.cy.base.result.ResultData;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

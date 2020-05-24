@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cy.oauth2.web.entities.SysRole;
 import com.cy.oauth2.web.service.SysRoleService;
-import com.mengxuegu.base.result.ResultData;
+import com.cy.base.result.ResultData;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
