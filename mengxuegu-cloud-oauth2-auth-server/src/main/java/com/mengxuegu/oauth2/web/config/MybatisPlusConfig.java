@@ -6,9 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/**
- * @Auther: 梦学谷 www.mengxuegu.com
- */
+
 @EnableTransactionManagement //开启事务管理 
 @MapperScan("com.mengxuegu.oauth2.web.mapper") // 扫描Mapper接口
 @Configuration

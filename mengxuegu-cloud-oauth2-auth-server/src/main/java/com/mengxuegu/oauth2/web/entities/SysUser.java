@@ -9,12 +9,13 @@ import org.assertj.core.util.Lists;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Data
-public class SysUser implements UserDetails {
+public class SysUser implements UserDetails, Serializable {
 
     @TableId(type = IdType.AUTO)
     private Long id;

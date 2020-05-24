@@ -1,6 +1,6 @@
 package com.mengxuegu.oauth2.server.authentication;
 
-import com.mengxuegu.base.result.MengxueguResult;
+import com.mengxuegu.base.result.ResultData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -27,7 +27,7 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 
   @Override
   public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-    MengxueguResult result = MengxueguResult.ok("认证成功");
+    ResultData result = ResultData.ok("认证成功");
     httpServletResponse.setContentType("application/json;charset=UTF-8");
     httpServletResponse.getOutputStream().write(result.toJsonString().getBytes("UTF-8"));
 

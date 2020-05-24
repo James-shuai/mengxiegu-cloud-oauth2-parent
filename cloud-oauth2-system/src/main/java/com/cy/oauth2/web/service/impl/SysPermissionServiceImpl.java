@@ -1,8 +1,6 @@
 package com.cy.oauth2.web.service.impl;
 
 
-import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cy.oauth2.web.entities.SysPermission;
@@ -10,23 +8,23 @@ import com.cy.oauth2.web.entities.SysUser;
 import com.cy.oauth2.web.mapper.SysPermissionMapper;
 import com.cy.oauth2.web.mapper.SysUserMapper;
 import com.cy.oauth2.web.service.SysPermissionService;
-import com.mengxuegu.base.result.MengxueguResult;
+import com.mengxuegu.base.result.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * @Auther: 梦学谷 www.mengxuegu.com
- */
+
 @Service
 public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, SysPermission> implements SysPermissionService {
 
   @Autowired
   private SysUserMapper sysUserMapper;
-
+    @Autowired
+    private SysPermissionMapper sysPermissionMapper;
 
     @Override
     public List<SysPermission> findByUserId(Long userId) {
@@ -46,8 +44,20 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
     List<SysPermission> byUserIds = baseMapper.findByUserIds(sysUser.getId());
     List<SysPermission> menuTreeList = getMenuTreeList(byUserIds, "0");
 
-    return MengxueguResult.ok(sysUser.getNickName(), menuTreeList);
+    return ResultData.ok(sysUser.getNickName(), menuTreeList);
   }
+
+
+    @Override
+    @Transactional
+    public boolean deleteRolePermission(String id) {
+        int isOk = sysPermissionMapper.delete(new QueryWrapper<SysPermission>().eq("id", id));
+        isOk+=sysPermissionMapper.deleteRolePermission(id);
+        if (isOk>1){
+            return true;
+        }
+        return false;
+    }
 
 
   /**

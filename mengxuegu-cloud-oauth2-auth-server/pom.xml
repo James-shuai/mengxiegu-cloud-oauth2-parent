@@ -76,10 +76,10 @@
       <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
     <!--热部署 ctrl+f9-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-devtools</artifactId>-->
+<!--    </dependency>-->
   </dependencies>
   <build>
     <plugins>

@@ -15,9 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.List;
 
-/**
- * @Auther: 梦学谷 www.mengxuegu.com 
- */
+
 public abstract class AbstractUserDetailsService implements UserDetailsService {
 
     @Autowired

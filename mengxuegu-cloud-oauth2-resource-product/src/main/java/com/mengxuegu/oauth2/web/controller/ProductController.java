@@ -1,6 +1,6 @@
 package com.mengxuegu.oauth2.web.controller;
 
-import com.mengxuegu.base.result.MengxueguResult;
+import com.mengxuegu.base.result.ResultData;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +18,12 @@ public class ProductController {
 
   @RequestMapping("/list")
   @PreAuthorize("hasAnyAuthority('sys:manage')")
-  public MengxueguResult list(){
+  public ResultData list(){
     List<String> list= new ArrayList<>();
     list.add("眼镜");
     list.add("衬衫");
     list.add("牛仔裤");
-    return MengxueguResult.ok(list);
+    return ResultData.ok(list);
   }
 
 

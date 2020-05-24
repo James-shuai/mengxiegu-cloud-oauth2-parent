@@ -1,6 +1,8 @@
 server:
   port: 8082
 spring:
+  jackson:
+    time-zone: GMT+8
   redis:
     host: 39.96.167.196
     password: yuanshuai
@@ -20,6 +22,9 @@ spring:
     validationQuery: SELECT 1 FROM DUAL
   application:
     name: system-server
+  http:
+    encoding:
+      charset: UTF-8
 
 eureka:
   client:
@@ -32,7 +37,6 @@ eureka:
 mybatis-plus:
   # 指定实体类所有包
   type-aliases-package: com.cy.oauth2.web.entities
-
 # 日志级别，会打印sql语句
 logging:
   level:

@@ -7,9 +7,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Auther: 梦学谷 www.mengxuegu.com
- */
+
 public interface SysPermissionService extends IService<SysPermission> {
 
     /**
@@ -19,5 +17,7 @@ public interface SysPermissionService extends IService<SysPermission> {
     List<SysPermission> findByUserId(Long userId);
 
   Object getNavMeny(Principal principal);
+
+    boolean deleteRolePermission(String id);
 
 }

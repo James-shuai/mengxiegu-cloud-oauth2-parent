@@ -1,6 +1,6 @@
 package com.mengxuegu.oauth2.server.authentication;
 
-import com.mengxuegu.base.result.MengxueguResult;
+import com.mengxuegu.base.result.ResultData;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
@@ -25,7 +25,7 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
   @Override
   public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
     //1、认证失败后响应json字符串
-    MengxueguResult result = MengxueguResult.build(HttpStatus.UNAUTHORIZED.value(), e.getMessage());
+    ResultData result = ResultData.build(HttpStatus.UNAUTHORIZED.value(), e.getMessage());
     httpServletResponse.setContentType("application/json;charset=UTF-8");
     httpServletResponse.getOutputStream().write(result.toJsonString().getBytes("UTF-8"));
 

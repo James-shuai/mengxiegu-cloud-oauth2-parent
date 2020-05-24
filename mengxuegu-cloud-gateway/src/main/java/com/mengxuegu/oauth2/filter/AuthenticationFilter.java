@@ -55,7 +55,6 @@ public class AuthenticationFilter extends ZuulFilter {
     Set<String> authoritySet = AuthorityUtils.authorityListToSet(authorities);
     //请求详情
     Object details = authentication.getDetails();
-
     Map<String,Object> result = new HashMap<>();
     result.put("principal",principal);
     result.put("authorities",authoritySet);

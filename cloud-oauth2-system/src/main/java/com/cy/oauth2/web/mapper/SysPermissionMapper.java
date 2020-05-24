@@ -2,15 +2,14 @@ package com.cy.oauth2.web.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.cy.oauth2.web.entities.SysPermission;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 
-/**
- * @Auther: 梦学谷 www.mengxuegu.com
- */
+
 public interface SysPermissionMapper extends BaseMapper<SysPermission> {
 
     /**
@@ -27,5 +26,8 @@ public interface SysPermissionMapper extends BaseMapper<SysPermission> {
     "left join sys_permission sp on sp.id=srp.permission_id\n" +
     "where sp.type=1 and su.id=#{userid}")
   List<SysPermission> findByUserIds(@Param("userid") Long userid);
+
+  @Delete("delete sys_role_permission where permission_id=#{id}")
+    int deleteRolePermission(@Param("id") String id);
 
 }

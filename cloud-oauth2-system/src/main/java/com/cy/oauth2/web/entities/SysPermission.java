@@ -3,16 +3,14 @@ package com.cy.oauth2.web.entities;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 权限实体类
- * @Auther: 梦学谷 www.mengxuegu.com
- */
+
 @Data
 public class SysPermission implements Serializable {
 
@@ -23,9 +21,10 @@ public class SysPermission implements Serializable {
      * 新增和修改页面上默认的父资源id
      */
     private Long parentId = 0L ;
-    private String name;
+    private String title;
 
-    private String route;
+    @TableField("`index`")
+    private String index;
     private String code;
     /**
      * 菜单：1，按钮：2
@@ -34,7 +33,9 @@ public class SysPermission implements Serializable {
     private Integer sort;
     private String icon;
     private String remark;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateDate;
 
     /**

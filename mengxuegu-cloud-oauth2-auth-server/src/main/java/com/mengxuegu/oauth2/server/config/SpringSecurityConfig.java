@@ -38,11 +38,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     auth.userDetailsService(customUserDetailsService);
   }
 
-//  @Override
-//  protected void configure(HttpSecurity http) throws Exception {
-//    http.formLogin().loginPage("http://localhost:8080").and().authorizeRequests().anyRequest().permitAll();
-//    http.addFilterAt(customAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-//  }
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.cors().and().authorizeRequests()
+            .anyRequest().permitAll();
+  }
 
   @Bean // 密码模式需要此bean
   @Override

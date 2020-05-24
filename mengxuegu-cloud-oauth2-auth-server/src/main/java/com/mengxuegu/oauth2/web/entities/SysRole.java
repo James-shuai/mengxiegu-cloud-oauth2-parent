@@ -11,9 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Auther: 梦学谷 www.mengxuegu.com 
- */
+
 @Data
 public class SysRole  implements Serializable {
 

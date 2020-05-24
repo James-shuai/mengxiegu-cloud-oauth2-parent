@@ -3,6 +3,7 @@ package com.cy.oauth2.web.entities;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.apache.commons.collections.CollectionUtils;
 import org.assertj.core.util.Lists;
@@ -65,7 +66,9 @@ public class SysUser implements UserDetails {
      * 邮箱
      */
     private String email;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateDate;
 
     /**
@@ -74,7 +77,7 @@ public class SysUser implements UserDetails {
     @TableField(exist = false) //该属性不是数据库表字段
     private Collection<? extends GrantedAuthority> authorities;
 
-        // 父接口认证方法 start
+    // 父接口认证方法 start
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.authorities;

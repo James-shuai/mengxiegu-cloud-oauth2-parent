@@ -9,10 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 权限实体类
- * @Auther: 梦学谷 www.mengxuegu.com
- */
+
 @Data
 public class SysPermission implements Serializable {
 
@@ -23,9 +20,9 @@ public class SysPermission implements Serializable {
      * 新增和修改页面上默认的父资源id
      */
     private Long parentId = 0L ;
-    private String name;
+    private String title;
 
-    private String route;
+    private String index;
     private String code;
     /**
      * 菜单：1，按钮：2
